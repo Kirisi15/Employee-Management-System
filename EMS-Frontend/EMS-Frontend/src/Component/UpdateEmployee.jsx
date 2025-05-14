@@ -3,9 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { getEmployeeById, updateEmployee } from '../Services/EmployeeService';
 
 const UpdateEmployee = () => {
-//   const { id } = useParams(); // get employee ID from URL
+  const { id } = useParams(); // get employee ID from URL
   const navigate = useNavigate();
-  const id=4; // used to go back to the list
+  
 
   // Form state
   const [employee, setEmployee] = useState({
@@ -30,7 +30,7 @@ const UpdateEmployee = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     updateEmployee(id, employee).then(() => {
-      navigate('/employees'); // go back to employee list
+      navigate('/'); // go back to employee list
     });
   };
 
