@@ -16,6 +16,11 @@ const ListEmployeeComponent = () => {
       });
   }, []);
 
+  const handleAdd = () => {
+    navigate('/add-employee');
+    
+  };
+  
   const handleEdit = (id) => {
     navigate(`/edit-employee/${id}`);
   };
@@ -24,6 +29,7 @@ const ListEmployeeComponent = () => {
     deleteEmployee(id)
         .then(() =>{
             setEmployees(employees.filter((emp) => emp.id !== id));
+            window.alert("Employee deleted successfully");
             })
             .catch((error) => console.log(error));
   }
@@ -31,6 +37,10 @@ const ListEmployeeComponent = () => {
   return (
     <div className="container">
       <h2>List of Employees</h2>
+      <button className="btn btn-primary" onClick={handleAdd}>
+        Add Employee
+      </button>
+      <br />
       <table className="table table-striped table-bordered">
         <thead>
           <tr>
